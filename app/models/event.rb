@@ -1,0 +1,7 @@
+class Event < ApplicationRecord
+  # model association
+  has_many :tickets, dependent: :destroy
+
+  # validations
+  validates_presence_of :name, :date, :tickets_quantity
+end
