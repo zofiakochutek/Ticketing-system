@@ -5,27 +5,27 @@ Wrote in Ruby on Rails.
 
 ## Work with FE
 
-Api provides specified below routes.
+###Api provides specified below routes.
 
-Get events:
+####Get events:
 http localhost:3000/events
 
-Get particular event:
+####Get particular event:
 http localhost:3000/events/event_id
 
-Post event:
+####Post event:
 http POST localhost:3000/events name=theatre 
 date=2019-07-06T15:57:36+02:00 time=2 available_tickets=1000 ticket_price=10
 
-Get tickets:
+####Get tickets:
 http localhost:3000/events/event_id/tickets
 
-Get particular ticket:
+####Get particular ticket:
 http localhost:3000/events/event_id/tickets/ticket_id 
 
-Create ticket:
+####Create ticket:
 http POST localhost:3000/events/event_id/payment amount=10 token=123 currency=EUR
 
-Get payments:
+####Get payments:
 http localhost:3000/events/event_id/payments
 
