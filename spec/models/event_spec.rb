@@ -5,8 +5,10 @@ RSpec.describe Event, type: :model do
   # ensure Event model has a 1:m relationship with the Ticket model
   it { should have_many(:tickets).dependent(:destroy) }
   # Validation tests
-  # ensure columns name, date and tickets_quanitity are present before saving
+  # ensure columns name, date and time, available_tickets, ticket_price are present before saving
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:date) }
-  it { should validate_presence_of(:tickets_quantity) }
+  it { should validate_presence_of(:time) }
+  it { should validate_presence_of(:available_tickets) }
+  it { should validate_presence_of(:ticket_price) }
 end

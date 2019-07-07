@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.text :name
       t.datetime :date
-      t.integer :tickets_quantity
+      t.decimal :time
 
       t.timestamps
     end

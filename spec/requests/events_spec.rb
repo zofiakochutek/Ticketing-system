@@ -7,6 +7,7 @@ RSpec.describe 'Events API', type: :request do
   let!(:events) { create_list(:event, 10) }
   let(:event_id) { events.first.id }
 
+  # Test suite for GET /events
   describe 'GET /events' do
     before { get '/events' }
     it 'returns events' do
@@ -25,7 +26,6 @@ RSpec.describe 'Events API', type: :request do
 
     context 'when the record exists' do
       it 'returns the event' do
-        # print "second print", json, "\n"
         expect(json).not_to be_empty
         expect(json['id']).to eq(event_id)
       end
@@ -53,7 +53,10 @@ RSpec.describe 'Events API', type: :request do
     # valid payload
     let(:valid_attributes) do
       { name: "Ed Sheeran's concert in London",
-        date: DateTime.now, tickets_quantity: 850 }
+        date: DateTime.now,
+        time: 2.0,
+        available_tickets: 850,
+        ticket_price: 10.0 }
     end
 
     context 'when the request is valid' do
@@ -77,7 +80,7 @@ RSpec.describe 'Events API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Date can't be blank, Tickets quantity can't be blank/)
+          .to match(/Validation failed: Date can't be blank, Time can't be blank, Available tickets can't be blank, Ticket price can't be blank/)
       end
     end
   end

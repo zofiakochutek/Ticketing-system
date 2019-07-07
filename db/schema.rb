@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_140546) do
+ActiveRecord::Schema.define(version: 2019_07_07_105323) do
 
   create_table "events", force: :cascade do |t|
     t.text "name"
     t.datetime "date"
-    t.integer "tickets_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "time"
+    t.integer "available_tickets"
+    t.decimal "ticket_price"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -25,10 +27,10 @@ ActiveRecord::Schema.define(version: 2019_07_05_140546) do
     t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "token"
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.decimal "price"
     t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

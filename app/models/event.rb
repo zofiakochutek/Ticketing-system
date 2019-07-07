@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :tickets, dependent: :destroy
 
   # validations
-  validates_presence_of :name, :date, :tickets_quantity
+  validates_presence_of :name, :date, :time, :available_tickets, :ticket_price
 end
