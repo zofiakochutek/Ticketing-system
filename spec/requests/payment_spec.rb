@@ -7,10 +7,15 @@ RSpec.describe 'Tickets API', type: :request do
   let!(:event) { create(:event) }
   let(:event_id) { event.id }
   let(:event_available_tickets) { event.available_tickets }
-  let!(:payment) { create(:payment) }
+  let!(:payments) { create_list(:payment, 5) }
 
+  # Test suite for GET /payments
   describe 'GET /events/:event_id/payment' do
     before { get "/events/#{event_id}/payment" }
+    it 'returns payments' do
+      expect(json).not_to be_empty
+      expect(json.size).to eq(5)
+    end
   end
 
   # Test suite for POST /events/:event_id/payment

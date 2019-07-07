@@ -5,6 +5,12 @@ class PaymentController < ApplicationController
 
   include Adapters::Payment
 
+  def index
+    @payments = Payment.all
+    json_response(@payments)
+  end
+
+
   # POST /events/:event_id/tickets
   def create
     Gateway.charge(
@@ -17,6 +23,7 @@ class PaymentController < ApplicationController
   end
 
   private
+
 
   def payment_params
     # whitelist params
